@@ -1,5 +1,6 @@
 <div class="">
     <h1>Danh sách sản phẩm</h1>
+    <a href="#!san-pham/them" class="btn btn-primary">Thêm mới</a>
     <table class="table">
         <tr>
             <th>ID</th>
@@ -11,13 +12,16 @@
             <th>Thao tác</th>
         </tr>
         <tr ng-repeat="item in danhSachSanPham">
-            <th>ID</th>
-            <th>Tên</th>
-            <th>Giá</th>
-            <th>Mô tả</th>
-            <th>Thời gian tạo</th>
-            <th>Thời gian cập nhật</th>
-            <th>Thao tác</th>
+            <th>{{item._id}}</th>
+            <th>{{item.name}}</th>
+            <th>{{item.price}}</th>
+            <th>{{item.description}}</th>
+            <th>{{item.createdAt | date}}</th>
+            <th>{{item.updatedAt | date}}</th>
+            <th>
+                <a href="#!san-pham/cap-nhat/{{item._id}}" class="btn btn-warning">Sửa</a>
+                <a href="" ng-click="delete(item._id)" class="btn btn-danger">Xóa</a>
+            </th>
         </tr>
     </table>
 </div>

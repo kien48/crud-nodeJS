@@ -22,9 +22,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#!san-pham">Danh sách</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Thêm mới</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -48,9 +45,20 @@
             .when('/san-pham', {
                 templateUrl: 'pages/list.html',
                 controller: 'listCtrl'
+            })
+            .when('/san-pham/them', {
+                templateUrl: 'pages/create.html',
+                controller: 'addCtrl'
+            })
+            .when('/san-pham/cap-nhat/:id', {
+                templateUrl: 'pages/update.html',
+                controller: 'updateCtrl'
             });
         });
     </script>
     <script src="pages/list.js"></script>
+    <script src="pages/create.js"></script>
+    <script src="pages/update.js"></script>
+
 </body>
 </html>
