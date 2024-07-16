@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/bootstrap.js"></script>
+</head>
+<body ng-app="myApp">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">CRUD App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!san-pham">Danh sách</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thêm mới</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4">
+        <div ng-view></div>
+    </main>
+
+    <footer class="bg-light text-center py-3">
+        <div class="container">
+            <span>ByKien</span>
+        </div>
+    </footer>
+
+    <script>
+        var myApp = angular.module('myApp', ['ngRoute']);
+        myApp.config(function($routeProvider){
+            $routeProvider
+            .when('/san-pham', {
+                templateUrl: 'pages/list.html',
+                controller: 'listCtrl'
+            });
+        });
+    </script>
+    <script src="pages/list.js"></script>
+</body>
+</html>
